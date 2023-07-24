@@ -12,7 +12,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   overrides: [],
-  parser: '@typescript-eslint/parser',
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
