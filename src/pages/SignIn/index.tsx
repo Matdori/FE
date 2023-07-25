@@ -10,14 +10,16 @@ function SignIn() {
     formState: { isSubmitting, errors },
   } = useForm<LoginFormValue>()
 
-  const onSubmitHandler: SubmitHandler<LoginFormValue> = data => {
-    Apis.SigninAX(data)
+  const onSubmitHandler: SubmitHandler<LoginFormValue> = async data => {
     console.log(data)
+
+    const reseponse = await Apis.SigninAX(data)
+    console.log(reseponse)
   }
 
   return (
     <>
-      <h2>BooPoo Logo</h2>
+      <h2>BeePoo Logo</h2>
       <h3>Login</h3>
       <p>이메일이 등록되어 있지 않다면,</p>
       <p>관리자에게 이메일 등록을 요청하세요.</p>
@@ -29,13 +31,13 @@ function SignIn() {
         })}
       >
         <div>
-          <label htmlFor="email">
+          <label htmlFor="userEmail">
             Email Address
             <input
-              id="email"
-              type="email"
+              id="userEmail"
+              type="userEmail"
               placeholder="email@email.com"
-              {...register('email', {
+              {...register('userEmail', {
                 required: '이메일은 필수 입력입니다.',
                 pattern: {
                   value: /^\S+@\S+$/i,
@@ -45,21 +47,23 @@ function SignIn() {
             />
           </label>
           <div>
-            {errors.email && <small role="alert">{errors.email.message}</small>}
+            {errors.userEmail && (
+              <small role="alert">{errors.userEmail.message}</small>
+            )}
           </div>
         </div>
 
         <div>
-          <label htmlFor="password">
+          <label htmlFor="userPassword">
             Password
             <input
-              id="password"
-              type="password"
+              id="userPassword"
+              type="userPassword"
               placeholder="********"
-              {...register('password', {
+              {...register('userPassword', {
                 required: '비밀번호는 필수 입력입니다.',
                 minLength: {
-                  value: 8,
+                  value: 3,
                   message: '8자리 이상 비밀번호를 사용하세요.',
                 },
               })}
@@ -67,8 +71,8 @@ function SignIn() {
           </label>
 
           <div>
-            {errors.password && (
-              <small role="alert">{errors.password.message}</small>
+            {errors.userPassword && (
+              <small role="alert">{errors.userPassword.message}</small>
             )}
           </div>
         </div>
