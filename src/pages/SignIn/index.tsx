@@ -1,7 +1,8 @@
+/* eslint-disable no-promise-executor-return */
 /* eslint-disable react/jsx-props-no-spreading */
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { LoginFormValue } from '../../Type'
-import Apis from '../../shared/Apis'
+import apis from '../../shared/Apis'
 
 function SignIn() {
   const {
@@ -13,7 +14,7 @@ function SignIn() {
   const onSubmitHandler: SubmitHandler<LoginFormValue> = async data => {
     console.log(data)
 
-    const reseponse = await Apis.SigninAX(data)
+    const reseponse = await apis.SigninAX(data)
     console.log(reseponse)
   }
 
