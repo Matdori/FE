@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { LoginFormValue } from '../../Type'
 import apis from '../../shared/Apis'
 
-function SignIn() {
+function SignInPage() {
   const {
     register,
     handleSubmit,
@@ -86,4 +86,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default SignInPage
