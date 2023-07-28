@@ -12,10 +12,15 @@ function SignInPage() {
   } = useForm<LoginFormValue>()
 
   const onSubmitHandler: SubmitHandler<LoginFormValue> = async data => {
-    console.log(data)
-
-    const reseponse = await apis.SigninAX(data)
-    console.log(reseponse)
+    const response = await apis.SigninAX(data)
+    if (response.status === 200 || response.status === 201) {
+      window.localStorage.setItem(
+        'Access_Token',
+        response.headers.authorization
+      )
+      alert('환영합니다')
+    }
+    console.log(response)
   }
 
   return (
