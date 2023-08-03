@@ -20,7 +20,6 @@ function SignInPage() {
       )
       alert('환영합니다')
     }
-    console.log(response)
   }
 
   return (
