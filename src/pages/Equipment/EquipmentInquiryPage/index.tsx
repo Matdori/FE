@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import EquipmentInquiryItem from '../../../components/EquipmentInquiry/EquipmentInquiryItem'
 import { EquipmentState } from '../../../Type'
 import Apis from '../../../shared/Apis'
-import { equipmentState, paginationState } from '../../../Atoms'
+import { equipmentState, paginationState, searchState } from '../../../Atoms'
 import EquipmentPagination from '../../../components/EquipmentPagination'
 
 function EquipmentInquiryPage() {
@@ -12,19 +12,28 @@ function EquipmentInquiryPage() {
     useRecoilState<EquipmentState>(equipmentState)
 
   const { itemsPerPage, currentPage } = useRecoilValue(paginationState)
+  const equipmentSearchItem = useRecoilValue(searchState)
 
   const getItems = useCallback(async () => {
-    const response: any = await Apis.GetEquipmentItemsAX({
+    const response = await Apis.GetEquipmentItemsAX({
       size: itemsPerPage,
       page: currentPage,
+      typeCode: equipmentSearchItem.searchTypeCode,
+      name: equipmentSearchItem.searchName,
+      serial: equipmentSearchItem.searchSerial,
+      createDateStart: equipmentSearchItem.searchcreateDateStart,
+      createDateEnd: equipmentSearchItem.searchcreateDateEnd,
+      userName: equipmentSearchItem.searchUserName,
+      departmentName: equipmentSearchItem.searchDepartmentName,
+      comment: equipmentSearchItem.searchComment,
+      status: equipmentSearchItem.searchStatus,
     })
-
     setEquipmentItem({
       ...equipmentItem,
       items: response.data.data,
       totalCnt: response.data.totalCnt,
     })
-  }, [currentPage])
+  }, [currentPage, equipmentSearchItem])
 
   useEffect(() => {
     getItems()
