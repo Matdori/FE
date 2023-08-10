@@ -25,6 +25,7 @@ function EquipmentPagination() {
     for (let i = 1; i <= lastPage; i += 1) {
       result.push(
         <Pagination.Item
+          key={i}
           active={equipmentPaginationItem.currentPage === i}
           onClick={() => onClickHandler(i)}
         >

@@ -13,12 +13,11 @@ function SignInPage() {
 
   const onSubmitHandler: SubmitHandler<LoginFormValue> = async data => {
     const response = await apis.SigninAX(data)
-    if (response.status === 200 || response.status === 201) {
+    if (response.status === 200) {
       window.localStorage.setItem(
         'Access_Token',
         response.headers.authorization
       )
-      alert('환영합니다')
     }
   }
 

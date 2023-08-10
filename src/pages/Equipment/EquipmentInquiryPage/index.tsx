@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default */
 import { useCallback, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import EquipmentInquiryItem from '../../../components/EquipmentInquiry/EquipmentInquiryItem'

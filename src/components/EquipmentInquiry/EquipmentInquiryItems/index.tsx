@@ -8,7 +8,7 @@ type EquipmentItemProps = {
 function EquipmentInquiryItems({ item }: EquipmentItemProps) {
   return (
     <ItemsList>
-      <span>{item.seq}</span>
+      <span>{item.type}</span>
       <span>{item.name}</span>
       <span>{item.serial}</span>
       <span>{item.createDate}</span>
