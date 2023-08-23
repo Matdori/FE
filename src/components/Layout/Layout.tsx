@@ -23,21 +23,21 @@ const LayoutHeaderDiv = styled.div`
   align-self: flex-start;
   flex-basis: 100%;
   height: 5vh;
-  padding-left: 30px;
+  // padding-left: 30px;
   background-color: #ff7d7d;
 `
 
 const LayoutContentDiv = styled.div`
   flex: 3;
   height: 90vh;
-  padding-left: 30px;
+  // padding-left: 30px;
   background-color: yellow;
 `
 
 const LayoutFooterDiv = styled.div`
   flex-basis: 100%;
   height: 5vh;
-  padding-left: 30px;
+  // padding-left: 30px;
   background-color: #a6eaa6;
 `
 

@@ -4,6 +4,8 @@ import {
   ModalsStates,
   PaginationItem,
   SearchItem,
+  AskState,
+  AskSearchItem,
 } from './Type'
 
 export const equipmentState = atom<EquipmentState>({
@@ -34,4 +36,22 @@ export const searchState = atom<SearchItem>({
 export const modalsState = atom<ModalsStates>({
   key: 'modalsState',
   default: { equipmentInquirySearchModal: false } as ModalsStates,
+})
+
+export const askState = atom<AskState>({
+  key: 'askState',
+  default: {} as AskState,
+})
+
+export const askSearchState = atom<AskSearchItem>({
+  key: 'askSearchState',
+  default: {
+    searchItemName: '',
+    searchItemType: '',
+    searchAskType: '',
+    searchAskUserName: '',
+    searchConfirmUserName: '',
+    searchcreateDateStart: '',
+    searchcreateDateEnd: '',
+  } as AskSearchItem,
 })

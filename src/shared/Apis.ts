@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GetEquipmentItem, LoginFormValue } from '../Type'
+import { GetAskItem, GetEquipmentItem, LoginFormValue } from '../Type'
 
 const noToken = axios.create({
   baseURL: import.meta.env.VITE_SERVER,
@@ -36,6 +36,18 @@ const Apis = {
   GetSearchTypeAX: () => token.get(`/api/item/type`),
   GetSearchStatusAX: () => token.get(`/api/item/status`),
   GetSearchDepartmentAX: () => token.get(`/api/department`),
+
+  GetAskItemsAX: (payload: GetAskItem) =>
+    token.get(
+      `/api/ask?page=${payload.page - 1}&size=${payload.size}&itemName=${
+        payload.itemName
+      }&itemType=${payload.itemType}&askType=${payload.askType}&askUserName=${
+        payload.askUserName
+      }&confirmUserName=${payload.confirmUserName}&startDate=${
+        payload.createDateStart
+      }&endDate=${payload.createDateEnd}`
+    ),
+  GetAskTypeAX: () => token.get(`/api/ask/type`),
 }
 
 export default Apis
