@@ -65,6 +65,7 @@ export interface GetEquipmentItem {
 
 export interface ModalsStates {
   equipmentInquirySearchModal: boolean
+  askInquirySearchModal: boolean
 }
 
 export interface DepartmentItems {
@@ -75,4 +76,50 @@ export interface DepartmentItems {
 export interface Types {
   key: number
   value: string
+}
+
+export interface AskState {
+  items: AskItem[]
+  totalCnt: number
+}
+
+export interface AskItem {
+  seq: number
+  itemName: string
+  itemType: string
+  askType: string
+  askUserName: string
+  confirmUserName: string
+}
+
+export interface AskInquirySearchFormValue {
+  itemName: string
+  itemType: string
+  askType: string
+  askUserName: string
+  confirmUserName: string
+  createDateStart: string
+  createDateEnd: string
+}
+
+export interface AskSearchItem {
+  searchItemName: string
+  searchItemType: string
+  searchAskType: string
+  searchAskUserName: string
+  searchConfirmUserName: string
+  searchcreateDateStart: string
+  searchcreateDateEnd: string
+}
+
+export interface GetAskItem {
+  size: number
+  page: number
+  itemName: string
+  itemType: string
+  askType: string
+  askUserName: string
+  confirmUserName: string
+  createDateStart: string
+  createDateEnd: string
 }
